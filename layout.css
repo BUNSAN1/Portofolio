@@ -63,4 +63,4 @@ img{
 @media(max-width:600px){
     #main{
      padding:0;
-     }
+    #sidebar{ visibility:hidden;}} }
