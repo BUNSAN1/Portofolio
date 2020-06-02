@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Programming STEM Project - [TEMPLATE]</title>
+  <style>
+    /* styles for layout */
+    .center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    div.center {
+      width: 800px;
+    }
+
+    /* styles for colors and fonts */
+    .answer {
+      color: red;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="center">
+    <h3>Programming STEM Project - [Converting Prefix Unit in Length]</h3>
+    <p>
+      Describe your project. What is the topic? What is the problem? What is the input? What is the output?<br>
+      This programming will convert the prefix unit of Length. You can convert cm to m, mm to nm, or anything you want.<br>
+      The inputs are number , its unit(Mm, km, m, dm, cm, mm, μm, nm, or pm), and the unit that you want to convert. The output is converted length.<br>
+      It takes three steps to convert. First, convert given prefix unit to m. Next, convert m to 
+    </p>
+    <p>
+      INPUT:Number&nbsp;<input type="text" id="input1">
+      <input type="button" onclick="getInput()" value="GO"><br>
+      Unit&nbsp;<input type="text" id="input2">
+     <br>
+      Unit that you want to convert&nbsp;<input type="text" id="input3">
+     <br>
+      OUTPUT:&nbsp;<span id="output1" class="answer"></span>
+    
+    </p>
+  </div>
+</body>
+<script>
+  /*
+  You can change anything on this page--HTML tags, CSS styles, JavaScript 
+  functions, etc. Do what you need to make it suitable for your STEM problem.
+  The lines of YOUR CODE are just a suggestion.
+
+  The getInput function will take user input from the page. You should call  
+  your functions from inside the getInput function.
+  
+  The writeOutput function will write some given text to the output span on
+  the page. You can call this function with your code when you have a result.
+  */
+
+  // This function will get the text entered into the "input" text field.
+  // Then it calls another function with the input as an argument.
+  function getInput() {
+    let inputField1 = document.getElementById("input1");
+    let input1 = inputField1.value;
+    let inputField2 = document.getElementById("input2");
+    let input2 = inputField2.value;
+    let inputField3 = document.getElementById("input3");
+    let input3 = inputField3.value;
+    convertCalculation(input1, input2, input3)
+    // do something with the input
+     // <-- replace this with YOUR CODE
+  }
+
+
+  // This function will write some text to the output span on the page.
+  function writeOutput(text) {
+    let outputSpan = document.getElementById("output1");
+    outputSpan.innerText = text;
+  }
+
+
+  // ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓  YOUR CODE  ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+  let mToMm = 1e-6
+  let mTokm = 1e-3
+  let mTodm = 10
+  let mTocm = 1e2
+  let mTomm = 1e3
+  let mToμm = 1e6
+  let mTonm = 1e9
+  let mTopm = 1e12
+  let MmTom = 1e6
+  let kmTom = 1e3
+  let dmTom = 1e-1
+  let cmTom = 1e-2
+  let mmTom = 1e-3
+  let μmTom = 1e-6
+  let nmTom = 1e-9
+  let pmTom = 1e-12
+  function convertCalculation(input1, input2, input3){
+    let convertedTom;
+   if(input2 == "Mm"){
+       convertedTom = input1 * MmTom;
+     }else if(input2 == "km"){
+       convertedTom = input1 * kmTom;
+     }else if(input2 == "dm"){
+        convertedTom = input1 * dmTom;
+     }else if(input2 == "m"){
+        convertedTom = input1;
+     }else if(input2 == "cm"){
+        convertedTom = input1 * cmTom;
+     }else if(input2 == "mm"){
+        convertedTom = input1 * mmTom;
+     }else if(input2 == "μm"){
+        convertedTom = input1 * μmTom;
+     }else if(input2 == "nm"){
+        convertedTom = input1 * nmTom;
+     }else if(input2 == "pm"){
+        convertedTom = input1 * pmTom;
+     }else{
+        convertedTom = "Please input right unit."
+     }
+     let answer;
+     if(convertedTom == "Please input right unit."){
+       answer = "Please input right unit.";
+     }else if(input3 == "Mm"){
+        answer = convertedTom * mToMm;
+        answer = answer + " " + input3;
+     }else if(input3 == "km"){
+        answer = convertedTom * mTokm;
+        answer = answer + " " + input3;
+     }else if(input3 == "dm"){
+        answer = convertedTom * mTodm;
+        answer = answer + " " + input3;
+     }else if(input3 == "m"){
+        answer = convertedTom;
+        answer = answer + " " + input3;
+     }else if(input3 == "cm"){
+        answer = convertedTom * mTocm;
+        answer = answer + " " + input3;
+     }else if(input3 == "mm"){
+        answer = convertedTom * mTomm;
+        answer = answer + " " + input3;
+     }else if(input3 == "μm"){
+        answer = convertedTom * mToμm;
+        answer = answer + " " + input3;
+     }else if(input3 == "nm"){
+        answer = convertedTom * mTonm;
+        answer = answer + " " + input3;
+     }else if(input3 == "pm"){
+        answer = convertedTom * mTopm;
+        answer = answer + " " + input3;
+     }else{
+       answer = "Please input right unit."
+     }
+     
+     writeOutput(answer);
+    }
+  // ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑  YOUR CODE  ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
+
+
+</script>
+
+</html>
